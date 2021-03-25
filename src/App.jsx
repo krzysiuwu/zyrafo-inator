@@ -1,9 +1,10 @@
-import "./styles/App.css";
 import Voronoi from "./voronoi";
+import Button from "./components/Button"
 import { useEffect, useRef } from "react";
 
+import "./styles/App.css";
+
 function App() {
-	console.log(Voronoi());
 	const svg = useRef(null);
 	useEffect(() => {
 		if (svg.current) {
@@ -13,8 +14,9 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">ŻYRAFO-INATOR</header>
-			<main>
-				<div ref={svg} id="ddd" />
+			<main className="Container">
+				<div ref={svg} className="ddd" />
+				<Button text="Nowa żyrafa"/>
 			</main>
 		</div>
 	);

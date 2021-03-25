@@ -17,7 +17,36 @@
 	font-size: 50px;
 }
 
-#ddd {
+.Container {
+	display: flex;
+	flex-direction: row;
+}
+
+.Button {
+	height: 50px;
+	width: 200px;
+	margin-left: 10px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: #264653;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 9px #999;
+	outline: none;
+}
+
+.Button:hover {
+	background-color: #1a2f38;
+}
+
+.Button:active {
+	background-color: #1a2f38;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+.ddd {
 	width: 600px;
 	height: 600px;
 }

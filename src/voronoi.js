@@ -8,9 +8,9 @@ const Voronoi = () => {
 	const svg = d3
 		.create("svg")
 		.attr("viewBox", [0, 0, width, height])
-		.attr("stroke-width", 2);
+		.attr("stroke-width", 1);
 
-	const circles = d3.range(15).map(() => ({
+	const circles = d3.range(20).map(() => ({
 		x: Math.random() * (width - radius * 2) + radius,
 		y: Math.random() * (height - radius * 2) + radius,
 	}));
@@ -34,7 +34,7 @@ const Voronoi = () => {
 	svg.append("path")
 		.attr("fill", "none")
 		.attr("stroke", "#ccc")
-		.attr("stroke-width", 10)
+		.attr("stroke-width", 15)
 		.attr("d", voronoi.render());
 	return svg.node();
 };
