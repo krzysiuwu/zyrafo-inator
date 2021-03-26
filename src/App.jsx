@@ -25,7 +25,7 @@ function App() {
 				<Giraffe key={forceUpdateValue} species={species} />
 				<div className="ButtonList">
 					<button type="button" className="Button" onClick={() => onClickHandler(0)} >Żyrafa siatkowana</button>
-					<button type="button" className="Button"  >Żyrafa zachodnioafrykańska</button>
+					<button type="button" className="Button" onClick={() => onClickHandler(1)} >Żyrafa zachodnioafrykańska</button>
 				</div>
 			</main>
 		</div>

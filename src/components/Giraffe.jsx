@@ -1,7 +1,15 @@
-import Voronoi from "../voronoi"
+import ReticulatedGiraffe from "../giraffes/ReticulatedGiraffe"
+import WestAfricanGiraffe from "../giraffes/WestAfricanGiraffe"
 
 function Giraffe (props) {
-    var svg = Voronoi(props.species)
+    switch(props.species){
+        case 0:
+            var svg = ReticulatedGiraffe()
+            break;
+        case 1:
+            var svg = WestAfricanGiraffe()
+            break;
+    }
     return (
         <svg dangerouslySetInnerHTML={{__html: svg.innerHTML}} className="ddd" />
     )

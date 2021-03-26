@@ -1,10 +1,8 @@
 import * as d3 from "d3";
 
-const Voronoi = (props) => {
+const ReticulatedGiraffe = () => {
 	const height = 600;
 	const width = 600;
-
-	console.log(props);
 
 	const svg = d3
 		.create("svg")
@@ -53,4 +51,4 @@ const Voronoi = (props) => {
 	return svg.node();
 };
 
-export default Voronoi;
+export default ReticulatedGiraffe;
