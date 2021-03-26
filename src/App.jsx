@@ -1,15 +1,26 @@
-import Voronoi from "./voronoi";
-
+import Giraffe from "./components/Giraffe";
+import React, {useState} from "react";
 import "./styles/App.css";
 
-function App() {
-	var svg = Voronoi()
+const useForceUpdate = () => {
+	const [count, setCount] = useState(0)
+	
+	const increment = () => setCount(prevCount => prevCount + 1)
+	return [increment, count]
+}
 
+function App() {
+	const [forceUpdate, forceUpdateValue] = useForceUpdate()
+
+	const onClickHandler = e => {
+		forceUpdate()
+	}
 	return (
 		<div className="App">
 			<header className="App-header">ŻYRAFO-INATOR</header>
 			<main className="Container">
-			<svg dangerouslySetInnerHTML={{__html: svg.innerHTML}} className="ddd" />
+				<Giraffe key={forceUpdateValue}/>
+				<button type="button" className="Button" onClick={onClickHandler} >Nowa żyrafa</button>
 			</main>
 		</div>
 	);

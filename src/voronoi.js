@@ -1,8 +1,10 @@
 import * as d3 from "d3";
 
-const Voronoi = () => {
+const Voronoi = (props) => {
 	const height = 600;
 	const width = 600;
+
+	console.log(props);
 
 	const svg = d3
 		.create("svg")
