@@ -16,10 +16,12 @@ const Voronoi = () => {
 		for (let j = 0; j < 3; j++) {
 			circles.push({
 				x:
-					Math.random() * ((i + 1) * xpart * 0.9 - i * xpart * 1.1) +
+					Math.random() *
+						((i + 1) * xpart * 0.95 - i * xpart * 1.05) +
 					i * xpart * 1.1,
 				y:
-					Math.random() * ((j + 1) * ypart * 0.9 - j * ypart * 1.1) +
+					Math.random() *
+						((j + 1) * ypart * 0.95 - j * ypart * 1.05) +
 					j * ypart * 1.1,
 			});
 		}
