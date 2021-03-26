@@ -11,16 +11,22 @@ const useForceUpdate = () => {
 
 function App() {
 	const [forceUpdate, forceUpdateValue] = useForceUpdate()
+	let [species, setSpecies] = useState(0)
 
-	const onClickHandler = e => {
+	const onClickHandler = props => {
+		setSpecies(species = props)
 		forceUpdate()
 	}
+
 	return (
 		<div className="App">
 			<header className="App-header">ŻYRAFO-INATOR</header>
 			<main className="Container">
-				<Giraffe key={forceUpdateValue}/>
-				<button type="button" className="Button" onClick={onClickHandler} >Nowa żyrafa</button>
+				<Giraffe key={forceUpdateValue} species={species} />
+				<div className="ButtonList">
+					<button type="button" className="Button" onClick={() => onClickHandler(0)} >Żyrafa siatkowana</button>
+					<button type="button" className="Button"  >Żyrafa zachodnioafrykańska</button>
+				</div>
 			</main>
 		</div>
 	);

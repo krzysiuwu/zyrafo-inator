@@ -23,9 +23,10 @@
 }
 
 .Button {
-	height: 50px;
-	width: 200px;
+	height: 60px;
+	width: 220px;
 	margin-left: 10px;
+	margin-bottom: 20px;
 	font-weight: bold;
 	font-size: 20px;
 	background-color: #264653;
@@ -44,6 +45,11 @@
 	background-color: #1a2f38;
 	box-shadow: 0 5px #666;
 	transform: translateY(4px);
+}
+
+.ButtonList {
+	display: flex;
+	flex-direction: column;
 }
 
 .ddd {
