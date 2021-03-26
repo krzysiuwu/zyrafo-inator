@@ -7,16 +7,19 @@ import "./styles/App.css";
 function App() {
 	const svg = useRef(null);
 	useEffect(() => {
-		if (svg.current) {
-			svg.current.appendChild(Voronoi());
-		}
+		svg.current.appendChild(Voronoi());
 	}, []);
+	
+	function NewSkin () {
+		
+	}
+
 	return (
 		<div className="App">
 			<header className="App-header">ŻYRAFO-INATOR</header>
 			<main className="Container">
 				<div ref={svg} className="ddd" />
-				<Button text="Nowa żyrafa"/>
+				<Button text="Nowa żyrafa" action="new" onClick={NewSkin()}/>
 			</main>
 		</div>
 	);
