@@ -1,5 +1,6 @@
 import ReticulatedGiraffe from "../giraffes/ReticulatedGiraffe"
 import WestAfricanGiraffe from "../giraffes/WestAfricanGiraffe"
+import NubianGiraffe from "../giraffes/NubianGiraffe"
 
 function Giraffe (props) {
     var svg
@@ -9,6 +10,9 @@ function Giraffe (props) {
             break;
         case 1:
             svg = WestAfricanGiraffe()
+            break;
+        case 2:
+            svg = NubianGiraffe()
             break;
         default:
             svg = ReticulatedGiraffe()
