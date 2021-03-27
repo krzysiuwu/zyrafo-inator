@@ -30,6 +30,13 @@ const NubianGiraffe = () => {
 		(d) => d.y
 	).voronoi([0, 0, width, height]);
 
+	svg.append("path")
+		.attr("fill", "none")
+		.attr("stroke", "#e4d5ab")
+		.attr("d", voronoi.render())
+		.attr("stroke-width", 1)
+		.attr("id", "top");
+
 	//cells
 	svg.append("g")
 		.attr("fill", "#a97e49")
@@ -39,6 +46,34 @@ const NubianGiraffe = () => {
 		.join("path")
 		.attr("d", (_d, i) => voronoi.renderCell(i));
 
+	var defs = svg.append("defs");
+
+	for (let i = 0; i < circles.length; i++) {
+		defs.append("radialGradient")
+			.attr("id", i)
+			.selectAll("stop")
+			.data([
+				{ offset: "0%", color: "#7d5d36" },
+				{ offset: "50%", color: "#8f6a3d" },
+				{ offset: "100%", color: "#a97e49" },
+			])
+			.enter()
+			.append("stop")
+			.attr("offset", function (d) {
+				return d.offset;
+			})
+			.attr("stop-color", function (d) {
+				return d.color;
+			});
+
+		svg.append("circle")
+			.attr("r", 100)
+			.attr("cx", circles[i].x)
+			.attr("cy", circles[i].y)
+			.style("fill", `url('#${i}')`)
+			.attr("clip-path", `url('#top')`);
+	}
+
 	//mesh
 	svg.append("g")
 		.attr("fill", "none")
@@ -47,7 +82,8 @@ const NubianGiraffe = () => {
 		.data(circles)
 		.join("path")
 		.attr("d", (_d, i) => voronoi.renderCell(i))
-		.attr("stroke-width", () => Math.random() * (20 - 10) + 10);
+		.attr("stroke-width", () => Math.random() * (20 - 10) + 10)
+		.attr("id", "top");
 
 	return svg.node();
 };

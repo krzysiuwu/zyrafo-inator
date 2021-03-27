@@ -24,9 +24,9 @@ function App() {
 			<main className="Container">
 				<Giraffe key={forceUpdateValue} species={species} />
 				<div className="ButtonList">
-					<button type="button" className="Button" onClick={() => onClickHandler(0)} >Żyrafa siatkowana</button>
-					<button type="button" className="Button" onClick={() => onClickHandler(1)} >Żyrafa zachodnioafrykańska</button>
-					<button type="button" className="Button" onClick={() => onClickHandler(2)} >Żyrafa nubijska</button>
+					<button type="button" className="Button" onClick={() => onClickHandler(0)}>Żyrafa siatkowana</button>
+					<button type="button" className="Button" onClick={() => onClickHandler(1)}>Żyrafa zachodnioafrykańska</button>
+					<button type="button" className="Button" onClick={() => onClickHandler(2)}>Żyrafa nubijska</button>
 				</div>
 			</main>
 		</div>
