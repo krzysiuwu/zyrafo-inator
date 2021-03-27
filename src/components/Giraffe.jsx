@@ -2,16 +2,19 @@ import ReticulatedGiraffe from "../giraffes/ReticulatedGiraffe"
 import WestAfricanGiraffe from "../giraffes/WestAfricanGiraffe"
 
 function Giraffe (props) {
+    var svg
     switch(props.species){
         case 0:
-            var svg = ReticulatedGiraffe()
+            svg = ReticulatedGiraffe()
             break;
         case 1:
-            var svg = WestAfricanGiraffe()
+            svg = WestAfricanGiraffe()
             break;
+        default:
+            svg = ReticulatedGiraffe()
     }
     return (
-        <svg dangerouslySetInnerHTML={{__html: svg.innerHTML}} className="ddd" />
+        <svg dangerouslySetInnerHTML={{__html: svg.innerHTML}} className="ddd" viewBox="100, 100, 600, 600" strokeWidth="1"/>
     )
 }
 
