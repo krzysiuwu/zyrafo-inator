@@ -30,13 +30,6 @@ const NubianGiraffe = () => {
 		(d) => d.y
 	).voronoi([0, 0, width, height]);
 
-	svg.append("path")
-		.attr("fill", "none")
-		.attr("stroke", "#e4d5ab")
-		.attr("d", voronoi.render())
-		.attr("stroke-width", 1)
-		.attr("id", "top");
-
 	//cells
 	svg.append("g")
 		.attr("fill", "#a97e49")
@@ -46,7 +39,7 @@ const NubianGiraffe = () => {
 		.join("path")
 		.attr("d", (_d, i) => voronoi.renderCell(i));
 
-	var defs = svg.append("defs");
+	var defs = svg.append("defs").append("clipPath").attr("id", "clip");
 
 	for (let i = 0; i < circles.length; i++) {
 		defs.append("radialGradient")
@@ -70,8 +63,7 @@ const NubianGiraffe = () => {
 			.attr("r", 100)
 			.attr("cx", circles[i].x)
 			.attr("cy", circles[i].y)
-			.style("fill", `url('#${i}')`)
-			.attr("clip-path", `url('#top')`);
+			.style("fill", `url('#${i}')`);
 	}
 
 	//mesh
