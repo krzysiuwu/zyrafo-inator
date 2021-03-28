@@ -39,7 +39,7 @@ const NubianGiraffe = () => {
 		.join("path")
 		.attr("d", (_d, i) => voronoi.renderCell(i));
 
-	var defs = svg.append("defs").append("clipPath").attr("id", "clip");
+	var defs = svg.append("defs");
 
 	for (let i = 0; i < circles.length; i++) {
 		defs.append("radialGradient")
@@ -59,10 +59,16 @@ const NubianGiraffe = () => {
 				return d.color;
 			});
 
+		defs.append("clipPath")
+			.attr("id", `clipPath${i}`)
+			.append("path")
+			.attr("d", voronoi.renderCell(i));
+
 		svg.append("circle")
 			.attr("r", 100)
 			.attr("cx", circles[i].x)
 			.attr("cy", circles[i].y)
+			.attr("clip-path", `url(#clipPath${i})`)
 			.style("fill", `url('#${i}')`);
 	}
 
