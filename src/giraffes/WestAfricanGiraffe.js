@@ -37,6 +37,38 @@ const WestAfricanGiraffe = () => {
 		.join("path")
 		.attr("d", (_d, i) => voronoi.renderCell(i));
 
+	//gradient
+	var defs = svg.append("defs");
+	for (let i = 0; i < circles.length; i++) {
+		defs.append("radialGradient")
+			.attr("id", i)
+			.selectAll("stop")
+			.data([
+				{ offset: "0%", color: "#c09e72" },
+				{ offset: "100%", color: "#b48b57" },
+			])
+			.enter()
+			.append("stop")
+			.attr("offset", function (d) {
+				return d.offset;
+			})
+			.attr("stop-color", function (d) {
+				return d.color;
+			});
+
+		defs.append("clipPath")
+			.attr("id", `clipPath${i}`)
+			.append("path")
+			.attr("d", voronoi.renderCell(i));
+
+		svg.append("circle")
+			.attr("r", 120)
+			.attr("cx", circles[i].x)
+			.attr("cy", circles[i].y)
+			.attr("clip-path", `url(#clipPath${i})`)
+			.style("fill", `url('#${i}')`);
+	}
+
 	//mesh
 	svg.append("g")
 		.attr("fill", "none")
