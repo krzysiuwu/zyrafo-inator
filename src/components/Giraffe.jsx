@@ -2,6 +2,7 @@ import ReticulatedGiraffe from "../giraffes/ReticulatedGiraffe"
 import WestAfricanGiraffe from "../giraffes/WestAfricanGiraffe"
 import NubianGiraffe from "../giraffes/NubianGiraffe"
 import KordofanGiraffe from "../giraffes/KordofanGiraffe"
+import AngolanGiraffe from "../giraffes/AngolanGiraffe"
 
 function Giraffe (props) {
     var svg
@@ -18,11 +19,14 @@ function Giraffe (props) {
         case 3:
             svg = KordofanGiraffe()
             break;
+        case 4:
+            svg = AngolanGiraffe()
+            break;
         default:
             svg = ReticulatedGiraffe()
     }
     return (
-        <svg dangerouslySetInnerHTML={{__html: svg.innerHTML}} className="ddd" viewBox="100, 100, 600, 600" strokeWidth="1"/>
+        <svg dangerouslySetInnerHTML={{__html: svg.innerHTML}} className="ddd" viewBox="100, 100, 600, 600" />
     )
 }
 
