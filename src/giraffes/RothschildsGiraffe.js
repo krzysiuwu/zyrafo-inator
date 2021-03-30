@@ -30,14 +30,6 @@ const RothschildsGiraffe = () => {
 		(d) => d.y
 	).voronoi([0, 0, width, height]);
 
-	svg.append("g")
-		.attr("fill", "#a8724f")
-		.attr("pointer-events", "all")
-		.selectAll("path")
-		.data(circles)
-		.join("path")
-		.attr("d", (_d, i) => voronoi.renderCell(i));
-
 	var defs = svg.append("defs");
 
 	for (let i = 0; i < circles.length; i++) {
@@ -63,7 +55,7 @@ const RothschildsGiraffe = () => {
 			.attr("d", voronoi.renderCell(i));
 
 		svg.append("circle")
-			.attr("r", 100)
+			.attr("r", 200)
 			.attr("cx", circles[i].x)
 			.attr("cy", circles[i].y)
 			.attr("clip-path", `url(#clipPath${i})`)

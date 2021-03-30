@@ -30,15 +30,6 @@ const KordofanGiraffe = () => {
 		(d) => d.y
 	).voronoi([0, 0, width, height]);
 
-	//cells TODO to jest zbędne wystarczy tło na całe svg
-	svg.append("g")
-		.attr("fill", "#a6865e")
-		.attr("pointer-events", "all")
-		.selectAll("path")
-		.data(circles)
-		.join("path")
-		.attr("d", (_d, i) => voronoi.renderCell(i));
-
 	var defs = svg.append("defs");
 
 	for (let i = 0; i < circles.length; i++) {
@@ -64,7 +55,7 @@ const KordofanGiraffe = () => {
 			.attr("d", voronoi.renderCell(i));
 
 		svg.append("circle")
-			.attr("r", 100)
+			.attr("r", 160)
 			.attr("cx", circles[i].x)
 			.attr("cy", circles[i].y)
 			.attr("clip-path", `url(#clipPath${i})`)

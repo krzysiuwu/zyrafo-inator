@@ -28,15 +28,6 @@ const WestAfricanGiraffe = () => {
 		(d) => d.y
 	).voronoi([0, 0, width, height]);
 
-	//cells
-	svg.append("g")
-		.attr("fill", "#b48b57")
-		.attr("pointer-events", "all")
-		.selectAll("path")
-		.data(circles)
-		.join("path")
-		.attr("d", (_d, i) => voronoi.renderCell(i));
-
 	//gradient
 	var defs = svg.append("defs");
 	for (let i = 0; i < circles.length; i++) {
@@ -62,7 +53,7 @@ const WestAfricanGiraffe = () => {
 			.attr("d", voronoi.renderCell(i));
 
 		svg.append("circle")
-			.attr("r", 120)
+			.attr("r", 170)
 			.attr("cx", circles[i].x)
 			.attr("cy", circles[i].y)
 			.attr("clip-path", `url(#clipPath${i})`)
