@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 
-const AngolanGiraffe = () => {
+const SouthAfricanGiraffe = () => {
 	const height = 800;
 	const width = 800;
 
@@ -31,7 +31,7 @@ const AngolanGiraffe = () => {
 	).voronoi([0, 0, width, height]);
 
 	svg.append("g")
-		.attr("fill", "#886138")
+		.attr("fill", "#95602e")
 		.attr("pointer-events", "all")
 		.selectAll("path")
 		.data(circles)
@@ -45,8 +45,8 @@ const AngolanGiraffe = () => {
 			.attr("id", i)
 			.selectAll("stop")
 			.data([
-				{ offset: "0%", color: "#6d4e2c" },
-				{ offset: "100%", color: "#886138" },
+				{ offset: "0%", color: "#754b24" },
+				{ offset: "100%", color: "#95602e" },
 			])
 			.enter()
 			.append("stop")
@@ -84,8 +84,13 @@ const AngolanGiraffe = () => {
 		for (let i = 0; i < NUM_POINTS; i++) {
 			let pt = path.getPointAtLength((i * len) / (NUM_POINTS - 1));
 
-			pt.x += Math.random() * (3 + 3) - 3;
-			pt.y += Math.random() * (3 + 3) - 3;
+			pt.x += Math.random() * (4 + 4) - 4;
+			pt.y += Math.random() * (4 + 4) - 4;
+
+			if (Math.random() < 1.5 / 100) {
+				pt.x += Math.random() * (17 + 17) - 17;
+				pt.y += Math.random() * (17 + 17) - 17;
+			}
 
 			points.push([pt.x, pt.y]);
 		}
@@ -95,14 +100,14 @@ const AngolanGiraffe = () => {
 	//mesh
 	svg.append("g")
 		.attr("fill", "none")
-		.attr("stroke", "#d1ba8e")
+		.attr("stroke", "#d4b18a")
 		.selectAll("path")
 		.data(circles)
 		.join("polygon")
 		.attr("points", (_d, i) => dupa(i))
-		.attr("stroke-width", () => Math.random() * (27 - 17) + 17);
+		.attr("stroke-width", () => Math.random() * (25 - 10) + 10);
 
 	return svg.node();
 };
 
-export default AngolanGiraffe;
+export default SouthAfricanGiraffe;
