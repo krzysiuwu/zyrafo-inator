@@ -5,6 +5,7 @@ import KordofanGiraffe from "../giraffes/KordofanGiraffe"
 import AngolanGiraffe from "../giraffes/AngolanGiraffe"
 import SouthAfricanGiraffe from "../giraffes/SouthAfricanGiraffe"
 import RothschildsGiraffe from "../giraffes/RothschildsGiraffe"
+import ThornicroftsGiraffe from "../giraffes/ThornicroftsGiraffe"
 
 function Giraffe (props) {
     var svg
@@ -29,6 +30,9 @@ function Giraffe (props) {
             break;
         case 6:
             svg = RothschildsGiraffe()
+            break;
+        case 7:
+            svg = ThornicroftsGiraffe()
             break;
         default:
             svg = ReticulatedGiraffe()

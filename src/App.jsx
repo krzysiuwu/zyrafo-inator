@@ -27,12 +27,13 @@ function App() {
 					<button type="button" className="Button" onClick={() => onClickHandler(1)}>Żyrafa zachodnioafrykańska</button>
 					<button type="button" className="Button" onClick={() => onClickHandler(2)}>Żyrafa nubijska</button>
 					<button type="button" className="Button" onClick={() => onClickHandler(3)}>Żyrafa kordofańska</button>
-					<button type="button" className="Button" onClick={() => onClickHandler(4)}>Żyrafa angolska</button>
-					<button type="button" className="Button" onClick={() => onClickHandler(5)}>Żyrafa południowoafrykańska</button>
+					<button type="button" className="Button" onClick={() => onClickHandler(4)}>Żyrafa angolska</button>		
 				</div>
 				<Giraffe key={forceUpdateValue} species={species} />
 				<div className="ButtonList">
+					<button type="button" className="Button" onClick={() => onClickHandler(5)}>Żyrafa południowoafrykańska</button>
 					<button type="button" className="Button" onClick={() => onClickHandler(6)}>Żyrafa rotszylda</button>
+					<button type="button" className="Button" onClick={() => onClickHandler(7)}>Żyrafa thornicrofta</button>
 				</div>
 			</main>
 			
