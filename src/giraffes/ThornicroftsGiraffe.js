@@ -90,7 +90,6 @@ const ThornicroftsGiraffe = () => {
 		const len = path.getTotalLength();
 		let points = [];
 
-		let counter = 0;
 		for (let j = 0; j < NUM_POINTS; j++) {
 			let pt = path.getPointAtLength((j * len) / (NUM_POINTS - 1));
 
@@ -146,9 +145,8 @@ const ThornicroftsGiraffe = () => {
 						])
 						.attr("fill", "#dac2b7");
 				}
-				counter = 0;
 			}
-			counter += 1;
+
 			pt.x += Math.random() * (3 + 3) - 3;
 			pt.y += Math.random() * (3 + 3) - 3;
 

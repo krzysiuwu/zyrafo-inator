@@ -73,7 +73,6 @@ const SouthAfricanGiraffe = () => {
 		const len = path.getTotalLength();
 		let points = [];
 
-		let counter = 0;
 		for (let j = 0; j < NUM_POINTS; j++) {
 			let pt = path.getPointAtLength((j * len) / (NUM_POINTS - 1));
 
@@ -129,9 +128,7 @@ const SouthAfricanGiraffe = () => {
 						])
 						.attr("fill", "#d4b18a");
 				}
-				counter = 0;
 			}
-			counter += 1;
 			pt.x += Math.random() * (4 + 4) - 4;
 			pt.y += Math.random() * (4 + 4) - 4;
 
