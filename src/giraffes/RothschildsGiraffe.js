@@ -13,12 +13,10 @@ const RothschildsGiraffe = () => {
 		for (let j = 0; j < 4; j++) {
 			circles.push({
 				x:
-					Math.random() *
-						((i + 1) * xpart * 0.95 - i * xpart * 1.05) +
+					Math.random() * ((i + 1) * xpart * 0.9 - i * xpart * 1.1) +
 					i * xpart * 1.1,
 				y:
-					Math.random() *
-						((j + 1) * ypart * 0.95 - j * ypart * 1.05) +
+					Math.random() * ((j + 1) * ypart * 0.9 - j * ypart * 1.1) +
 					j * ypart * 1.1,
 			});
 		}
@@ -30,15 +28,31 @@ const RothschildsGiraffe = () => {
 		(d) => d.y
 	).voronoi([0, 0, width, height]);
 
-	var defs = svg.append("defs");
+	const shades = ["#8b5f41", "#795339", "#684731", "#573b29"];
+
+	let defs = svg.append("defs");
 
 	for (let i = 0; i < circles.length; i++) {
-		defs.append("radialGradient")
+		defs.append("linearGradient")
 			.attr("id", i)
 			.selectAll("stop")
 			.data([
-				{ offset: "0%", color: "#795339" },
-				{ offset: "100%", color: "#a8724f" },
+				{
+					offset: "0%",
+					color: shades[Math.floor(Math.random() * shades.length)],
+				},
+				{
+					offset: "30%",
+					color: shades[Math.floor(Math.random() * shades.length)],
+				},
+				{
+					offset: "60%",
+					color: shades[Math.floor(Math.random() * shades.length)],
+				},
+				{
+					offset: "100%",
+					color: shades[Math.floor(Math.random() * shades.length)],
+				},
 			])
 			.enter()
 			.append("stop")
@@ -59,6 +73,7 @@ const RothschildsGiraffe = () => {
 			.attr("cx", circles[i].x)
 			.attr("cy", circles[i].y)
 			.attr("clip-path", `url(#clipPath${i})`)
+			.attr("spreadMethod", "reflect")
 			.style("fill", `url('#${i}')`);
 	}
 

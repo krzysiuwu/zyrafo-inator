@@ -34,7 +34,7 @@ function Giraffe (props) {
             svg = ReticulatedGiraffe()
     }
     return (
-        <svg dangerouslySetInnerHTML={{__html: svg.innerHTML}} className="ddd" viewBox="100, 100, 600, 600" />
+        <svg dangerouslySetInnerHTML={{__html: svg.innerHTML}} className="Giraffe" viewBox="100, 100, 600, 600" />
     )
 }
 
