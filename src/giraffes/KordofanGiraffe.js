@@ -86,7 +86,6 @@ const KordofanGiraffe = () => {
 		return points;
 	}
 
-	//mesh
 	svg.append("g")
 		.attr("fill", "none")
 		.attr("stroke", "#e4d5ab")

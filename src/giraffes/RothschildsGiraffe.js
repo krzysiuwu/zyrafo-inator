@@ -77,7 +77,7 @@ const RothschildsGiraffe = () => {
 			.style("fill", `url('#${i}')`);
 	}
 
-	function dupa(i) {
+	function RaggedLines(i) {
 		const NUM_POINTS = 80;
 		const path = document.createElementNS(
 			"http://www.w3.org/2000/svg",
@@ -111,7 +111,7 @@ const RothschildsGiraffe = () => {
 		.selectAll("path")
 		.data(circles)
 		.join("polygon")
-		.attr("points", (_d, i) => dupa(i))
+		.attr("points", (_d, i) => RaggedLines(i))
 		.attr("stroke-width", () => Math.random() * (20 - 10) + 10);
 
 	return svg.node();

@@ -84,7 +84,6 @@ const AngolanGiraffe = () => {
 		return points;
 	}
 
-	//mesh
 	svg.append("g")
 		.attr("fill", "none")
 		.attr("stroke", "#d1ba8e")

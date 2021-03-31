@@ -63,7 +63,6 @@ const NubianGiraffe = () => {
 			.style("fill", `url('#${i}')`);
 	}
 
-	//mesh
 	svg.append("g")
 		.attr("fill", "none")
 		.attr("stroke", "#e4d5ab")

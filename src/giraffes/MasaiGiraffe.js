@@ -71,7 +71,7 @@ const ThornicroftsGiraffe = () => {
 			.style("fill", `url('#${i}')`);
 	}
 
-	function dupa(i) {
+	function RaggedLines(i) {
 		const NUM_POINTS = 80;
 		const path = document.createElementNS(
 			"http://www.w3.org/2000/svg",
@@ -98,31 +98,31 @@ const ThornicroftsGiraffe = () => {
 					const pt3y = y + (4 / 5) * (circles[i].y - y);
 
 					let spikepoints = [];
-					for (let ddd = 0; ddd < 20; ddd++) {
+					for (let k = 0; k < 20; k++) {
 						spikepoints.push(
 							pt.x +
-								(ddd / 20) * (pt3x - pt.x) +
+								(k / 20) * (pt3x - pt.x) +
 								Math.random() * (3 + 3) -
 								3
 						);
 						spikepoints.push(
 							pt.y +
-								(ddd / 20) * (pt3y - pt.y) +
+								(k / 20) * (pt3y - pt.y) +
 								Math.random() * (3 + 3) -
 								3
 						);
 					}
 					let spikepoints2 = [];
-					for (let ddd = 0; ddd < 20; ddd++) {
+					for (let k = 0; k < 20; k++) {
 						spikepoints2.push(
 							pt3x +
-								(ddd / 30) * (pt2.x - pt3x) +
+								(k / 30) * (pt2.x - pt3x) +
 								Math.random() * (3 + 3) -
 								3
 						);
 						spikepoints2.push(
 							pt3y +
-								(ddd / 30) * (pt2.y - pt3y) +
+								(k / 30) * (pt2.y - pt3y) +
 								Math.random() * (3 + 3) -
 								3
 						);
@@ -149,14 +149,13 @@ const ThornicroftsGiraffe = () => {
 		return points;
 	}
 
-	//mesh
 	svg.append("g")
 		.attr("fill", "none")
 		.attr("stroke", "#ceb19f")
 		.selectAll("path")
 		.data(circles)
 		.join("polygon")
-		.attr("points", (_d, i) => dupa(i))
+		.attr("points", (_d, i) => RaggedLines(i))
 		.attr("stroke-width", 30);
 
 	return svg.node();
