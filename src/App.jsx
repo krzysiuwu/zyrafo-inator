@@ -34,6 +34,7 @@ function App() {
 					<button type="button" className="Button" onClick={() => onClickHandler(5)}>Żyrafa południowoafrykańska</button>
 					<button type="button" className="Button" onClick={() => onClickHandler(6)}>Żyrafa rotszylda</button>
 					<button type="button" className="Button" onClick={() => onClickHandler(7)}>Żyrafa thornicrofta</button>
+					<button type="button" className="Button" onClick={() => onClickHandler(8)}>Żyrafa Masajska</button>
 				</div>
 			</main>
 			
