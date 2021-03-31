@@ -90,49 +90,67 @@ const ThornicroftsGiraffe = () => {
 		const len = path.getTotalLength();
 		let points = [];
 
+		let counter = 0;
 		for (let j = 0; j < NUM_POINTS; j++) {
 			let pt = path.getPointAtLength((j * len) / (NUM_POINTS - 1));
 
-			if (Math.random() < 1 / 100) {
-				let pt2 = path.getPointAtLength((j * len) / (NUM_POINTS - 5));
+			if (Math.random() < 1.5 / 100) {
+				let pt2 = path.getPointAtLength((j * len) / (NUM_POINTS + 5));
 				if (
 					Math.abs(pt.x - pt2.x) > 15 ||
 					Math.abs(pt.y - pt2.y) > 15
 				) {
-					const randomx = Math.random() * (10 + 10) - 10;
-					const randomy = Math.random() * (10 + 10) - 10;
 					const x = (pt.x + pt2.x) / 2;
 					const y = (pt.y + pt2.y) / 2;
-					const pt3x = x + (4 / 5) * (circles[i].x - x);
-					const pt3y = y + (4 / 5) * (circles[i].y - y);
-					svg.append("polygon")
-						.attr("points", [
-							pt.x,
-							pt.y,
-							pt2.x,
-							pt2.y,
-							pt3x + randomx,
-							pt3y + randomy,
-						])
-						.attr("fill", "none")
-						.attr("stroke-width", 3)
-						.attr("stroke", "#dac2b7")
-						.attr("stroke-linejoin", "round");
+					const pt3x = x + (2 / 5) * (circles[i].x - x);
+					const pt3y = y + (2 / 5) * (circles[i].y - y);
 
+					let spikepoints = [];
+					for (let ddd = 0; ddd < 5; ddd++) {
+						spikepoints.push(
+							pt.x +
+								(ddd / 6) * (pt3x - pt.x) +
+								Math.random() * (3 + 3) -
+								3
+						);
+						spikepoints.push(
+							pt.y +
+								(ddd / 6) * (pt3y - pt.y) +
+								Math.random() * (3 + 3) -
+								3
+						);
+					}
+					let spikepoints2 = [];
+					for (let ddd = 0; ddd < 5; ddd++) {
+						spikepoints2.push(
+							pt3x +
+								(ddd / 6) * (pt2.x - pt3x) +
+								Math.random() * (3 + 3) -
+								3
+						);
+						spikepoints2.push(
+							pt3y +
+								(ddd / 6) * (pt2.y - pt3y) +
+								Math.random() * (3 + 3) -
+								3
+						);
+					}
 					svg.append("polygon")
 						.attr("points", [
 							pt.x,
 							pt.y,
+							spikepoints,
+							spikepoints2,
 							pt2.x,
 							pt2.y,
-							pt3x + randomx,
-							pt3y + randomy,
 						])
 						.attr("fill", "#dac2b7");
 				}
+				counter = 0;
 			}
-			pt.x += Math.random() * (2 + 2) - 1;
-			pt.y += Math.random() * (2 + 2) - 1;
+			counter += 1;
+			pt.x += Math.random() * (3 + 3) - 3;
+			pt.y += Math.random() * (3 + 3) - 3;
 
 			points.push([pt.x, pt.y]);
 		}

@@ -73,50 +73,67 @@ const SouthAfricanGiraffe = () => {
 		const len = path.getTotalLength();
 		let points = [];
 
+		let counter = 0;
 		for (let j = 0; j < NUM_POINTS; j++) {
 			let pt = path.getPointAtLength((j * len) / (NUM_POINTS - 1));
 
-			pt.x += Math.random() * (4 + 4) - 4;
-			pt.y += Math.random() * (4 + 4) - 4;
-
 			if (Math.random() < 1.5 / 100) {
-				let pt2 = path.getPointAtLength((j * len) / (NUM_POINTS - 5));
+				let pt2 = path.getPointAtLength((j * len) / (NUM_POINTS + 5));
 				if (
-					Math.abs(pt.x - pt2.x) > 15 ||
-					Math.abs(pt.y - pt2.y) > 15
+					Math.abs(pt.x - pt2.x) > 25 ||
+					Math.abs(pt.y - pt2.y) > 25
 				) {
-					const randomx = Math.random() * (10 + 10) - 10;
-					const randomy = Math.random() * (10 + 10) - 10;
 					const x = (pt.x + pt2.x) / 2;
 					const y = (pt.y + pt2.y) / 2;
 					const pt3x = x + (4 / 5) * (circles[i].x - x);
 					const pt3y = y + (4 / 5) * (circles[i].y - y);
-					svg.append("polygon")
-						.attr("points", [
-							pt.x,
-							pt.y,
-							pt2.x,
-							pt2.y,
-							pt3x + randomx,
-							pt3y + randomy,
-						])
-						.attr("fill", "none")
-						.attr("stroke-width", 3)
-						.attr("stroke", "#d4b18a")
-						.attr("stroke-linejoin", "round");
 
+					let spikepoints = [];
+					for (let ddd = 0; ddd < 20; ddd++) {
+						spikepoints.push(
+							pt.x +
+								(ddd / 20) * (pt3x - pt.x) +
+								Math.random() * (3 + 3) -
+								3
+						);
+						spikepoints.push(
+							pt.y +
+								(ddd / 20) * (pt3y - pt.y) +
+								Math.random() * (3 + 3) -
+								3
+						);
+					}
+					let spikepoints2 = [];
+					for (let ddd = 0; ddd < 20; ddd++) {
+						spikepoints2.push(
+							pt3x +
+								(ddd / 30) * (pt2.x - pt3x) +
+								Math.random() * (3 + 3) -
+								3
+						);
+						spikepoints2.push(
+							pt3y +
+								(ddd / 30) * (pt2.y - pt3y) +
+								Math.random() * (3 + 3) -
+								3
+						);
+					}
 					svg.append("polygon")
 						.attr("points", [
 							pt.x,
 							pt.y,
+							spikepoints,
+							spikepoints2,
 							pt2.x,
 							pt2.y,
-							pt3x + randomx,
-							pt3y + randomy,
 						])
 						.attr("fill", "#d4b18a");
 				}
+				counter = 0;
 			}
+			counter += 1;
+			pt.x += Math.random() * (4 + 4) - 4;
+			pt.y += Math.random() * (4 + 4) - 4;
 
 			points.push([pt.x, pt.y]);
 		}

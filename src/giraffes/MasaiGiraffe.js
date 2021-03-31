@@ -86,11 +86,11 @@ const ThornicroftsGiraffe = () => {
 		for (let j = 0; j < NUM_POINTS; j++) {
 			let pt = path.getPointAtLength((j * len) / (NUM_POINTS - 1));
 
-			if (counter >= 20) {
+			if (counter >= 16) {
 				let pt2 = path.getPointAtLength((j * len) / (NUM_POINTS + 5));
 				if (
-					Math.abs(pt.x - pt2.x) > 15 ||
-					Math.abs(pt.y - pt2.y) > 15
+					Math.abs(pt.x - pt2.x) > 25 ||
+					Math.abs(pt.y - pt2.y) > 25
 				) {
 					const x = (pt.x + pt2.x) / 2;
 					const y = (pt.y + pt2.y) / 2;
@@ -136,10 +136,7 @@ const ThornicroftsGiraffe = () => {
 							pt2.x,
 							pt2.y,
 						])
-						.attr("fill", "#ceb19f")
-						.attr("stroke-width", 1)
-						.attr("stroke", "#ceb19f")
-						.attr("stroke-linejoin", "round");
+						.attr("fill", "#ceb19f");
 				}
 				counter = 0;
 			}
