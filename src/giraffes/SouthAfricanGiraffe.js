@@ -73,15 +73,49 @@ const SouthAfricanGiraffe = () => {
 		const len = path.getTotalLength();
 		let points = [];
 
-		for (let i = 0; i < NUM_POINTS; i++) {
-			let pt = path.getPointAtLength((i * len) / (NUM_POINTS - 1));
+		for (let j = 0; j < NUM_POINTS; j++) {
+			let pt = path.getPointAtLength((j * len) / (NUM_POINTS - 1));
 
 			pt.x += Math.random() * (4 + 4) - 4;
 			pt.y += Math.random() * (4 + 4) - 4;
 
 			if (Math.random() < 1.5 / 100) {
-				pt.x += Math.random() * (17 + 17) - 17;
-				pt.y += Math.random() * (17 + 17) - 17;
+				let pt2 = path.getPointAtLength((j * len) / (NUM_POINTS - 5));
+				if (
+					Math.abs(pt.x - pt2.x) > 15 ||
+					Math.abs(pt.y - pt2.y) > 15
+				) {
+					const randomx = Math.random() * (10 + 10) - 10;
+					const randomy = Math.random() * (10 + 10) - 10;
+					const x = (pt.x + pt2.x) / 2;
+					const y = (pt.y + pt2.y) / 2;
+					const pt3x = x + (4 / 5) * (circles[i].x - x);
+					const pt3y = y + (4 / 5) * (circles[i].y - y);
+					svg.append("polygon")
+						.attr("points", [
+							pt.x,
+							pt.y,
+							pt2.x,
+							pt2.y,
+							pt3x + randomx,
+							pt3y + randomy,
+						])
+						.attr("fill", "none")
+						.attr("stroke-width", 3)
+						.attr("stroke", "#d4b18a")
+						.attr("stroke-linejoin", "round");
+
+					svg.append("polygon")
+						.attr("points", [
+							pt.x,
+							pt.y,
+							pt2.x,
+							pt2.y,
+							pt3x + randomx,
+							pt3y + randomy,
+						])
+						.attr("fill", "#d4b18a");
+				}
 			}
 
 			points.push([pt.x, pt.y]);

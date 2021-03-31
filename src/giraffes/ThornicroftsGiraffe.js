@@ -30,12 +30,12 @@ const ThornicroftsGiraffe = () => {
 		(d) => d.y
 	).voronoi([0, 0, width, height]);
 
-	const shades = ["#8b5f41", "#795339", "#684731"];
+	const shades = ["#785541", "#74523e", "#634636"];
 
 	let defs = svg.append("defs");
 
 	for (let i = 0; i < circles.length; i++) {
-		defs.append("linearGradient")
+		defs.append("radialGradient")
 			.attr("id", i)
 			.selectAll("stop")
 			.data([
@@ -44,11 +44,11 @@ const ThornicroftsGiraffe = () => {
 					color: shades[Math.floor(Math.random() * shades.length)],
 				},
 				{
-					offset: "30%",
+					offset: "20%",
 					color: shades[Math.floor(Math.random() * shades.length)],
 				},
 				{
-					offset: "60%",
+					offset: "40%",
 					color: shades[Math.floor(Math.random() * shades.length)],
 				},
 				{
@@ -116,7 +116,7 @@ const ThornicroftsGiraffe = () => {
 						])
 						.attr("fill", "none")
 						.attr("stroke-width", 3)
-						.attr("stroke", "#ffe3cb")
+						.attr("stroke", "#dac2b7")
 						.attr("stroke-linejoin", "round");
 
 					svg.append("polygon")
@@ -128,7 +128,7 @@ const ThornicroftsGiraffe = () => {
 							pt3x + randomx,
 							pt3y + randomy,
 						])
-						.attr("fill", "#ffe3cb");
+						.attr("fill", "#dac2b7");
 				}
 			}
 			pt.x += Math.random() * (2 + 2) - 1;
@@ -142,7 +142,7 @@ const ThornicroftsGiraffe = () => {
 	//mesh
 	svg.append("g")
 		.attr("fill", "none")
-		.attr("stroke", "#ffe3cb")
+		.attr("stroke", "#dac2b7")
 		.selectAll("path")
 		.data(circles)
 		.join("polygon")

@@ -28,7 +28,7 @@ const RothschildsGiraffe = () => {
 		(d) => d.y
 	).voronoi([0, 0, width, height]);
 
-	const shades = ["#8b5f41", "#795339", "#684731", "#573b29"];
+	const shades = ["#9c6a49", "#8b5f41", "#795339", "#684731"];
 
 	let defs = svg.append("defs");
 
