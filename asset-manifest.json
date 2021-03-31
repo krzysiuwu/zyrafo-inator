@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/zyrafo-inator/static/css/main.5995d636.chunk.css",
-    "main.js": "/zyrafo-inator/static/js/main.3253ff37.chunk.js",
-    "main.js.map": "/zyrafo-inator/static/js/main.3253ff37.chunk.js.map",
+    "main.js": "/zyrafo-inator/static/js/main.db508640.chunk.js",
+    "main.js.map": "/zyrafo-inator/static/js/main.db508640.chunk.js.map",
     "runtime-main.js": "/zyrafo-inator/static/js/runtime-main.489768c8.js",
     "runtime-main.js.map": "/zyrafo-inator/static/js/runtime-main.489768c8.js.map",
     "static/js/2.416bd3ab.chunk.js": "/zyrafo-inator/static/js/2.416bd3ab.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.489768c8.js",
     "static/js/2.416bd3ab.chunk.js",
     "static/css/main.5995d636.chunk.css",
-    "static/js/main.3253ff37.chunk.js"
+    "static/js/main.db508640.chunk.js"
   ]
 }
